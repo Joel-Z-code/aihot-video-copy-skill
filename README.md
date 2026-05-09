@@ -10,11 +10,19 @@
 
 ## 一键安装
 
+通用安装，适合 Claude Code、Trae、Cursor、Gemini CLI、OpenCode 等支持 Agent Skills 的工具：
+
 ```bash
 npx skills add Joel-Z-code/aihot-video-copy-skill -g --all
 ```
 
-安装完成后，重启你的 Agent，让新的 Skill 生效。后续更新也重新运行同一条命令即可。
+Codex 用户如果安装后没有在 Skill 列表里看到它，使用下面这条更稳定的 Codex 安装命令：
+
+```bash
+python "$env:USERPROFILE\.codex\skills\.system\skill-installer\scripts\install-skill-from-github.py" --repo Joel-Z-code/aihot-video-copy-skill --path skills/aihot skills/aihot-video-copy-skill
+```
+
+安装完成后，重启你的 Agent，让新的 Skill 生效。后续更新也重新运行对应命令即可。
 
 这条命令会安装两个 Skill：
 
