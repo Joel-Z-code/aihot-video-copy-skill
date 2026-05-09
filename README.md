@@ -1,8 +1,8 @@
 # AI Hot Video Copy Skill
 
-一个用于 AI 热点短视频文案生产的 Codex Skill。
+一个用于 AI 热点短视频文案生产的 Codex Skill 组合包。
 
-它可以把近期 AI 热点转成适合数字人口播和 AI 画面的 70-85 秒短视频文案，并输出标题、Hook、AI 画面方向和一句一行字幕版，方便复制到剪辑软件里使用。
+它会同时安装 AI Hot 热点获取 Skill 和短视频文案生成 Skill。安装后，可以把近期 AI 热点转成适合数字人口播和 AI 画面的 70-85 秒短视频文案，并输出标题、Hook、AI 画面方向和一句一行字幕版，方便复制到剪辑软件里使用。
 
 ## 能做什么
 
@@ -11,15 +11,21 @@
 - 输出 70-85 秒左右的口播稿
 - 输出一句一行的字幕版
 - 提供标题候选、5 秒 Hook 和 AI 画面方向
+- 内置内容诊断、开头优化、标题优化和 AI 写作特征检查
 - 支持按账号方向做本次定制，例如 AI 科普、热点资讯、工具轻教程、商业机会解读等
 
 ## 一键安装
 
 ```bash
-npx skills add https://github.com/Joel-Z-code/aihot-video-copy-skill/tree/main/skills/aihot-video-copy-skill -g -a codex -y
+npx skills add https://github.com/Joel-Z-code/aihot-video-copy-skill --skill aihot --skill aihot-video-copy-skill -g -a codex -y
 ```
 
 安装完成后，重启 Codex，让新的 Skill 生效。
+
+这条命令会同时安装：
+
+- `aihot`：获取 AI HOT 热点
+- `aihot-video-copy-skill`：生成短视频文案
 
 ## 使用方式
 
@@ -61,3 +67,7 @@ npx skills add https://github.com/Joel-Z-code/aihot-video-copy-skill/tree/main/s
 - 非 AI 话题内容
 - 单独查询 AI 新闻
 - 单独改标题、改开头或润色文章
+
+## 来源说明
+
+AI Hot 热点获取能力来自 [AI HOT](https://aihot.virxact.com/) 及其公开 Skill，原项目采用 MIT License。
