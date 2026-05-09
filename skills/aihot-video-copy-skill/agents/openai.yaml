@@ -1,4 +1,4 @@
 interface:
   display_name: "AI热点短视频文案流水线"
-  short_description: "把AI热点批量编排成数字人口播短视频文案。"
+  short_description: "把AI热点编排成有停留理由的数字人口播文案。"
   default_prompt: "Use $aihot-video-copy-skill to turn recent AI HOT topics into 70-85 second Chinese short-video scripts with Hook, title candidates, AI visual directions, and line-by-line subtitles."
