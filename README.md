@@ -1,41 +1,74 @@
 # AI Hot Video Copy Skill
 
-一个用于 AI 热点短视频文案生产的 Codex Skill 组合包。
+从 AI HOT 到短视频文案的一条龙 Skill 组合包。
 
-它会同时安装 AI Hot 热点获取 Skill 和短视频文案生成 Skill。安装后，可以把近期 AI 热点转成适合数字人口播和 AI 画面的 70-85 秒短视频文案，并输出标题、Hook、AI 画面方向和一句一行字幕版，方便复制到剪辑软件里使用。
+它会先获取近期 AI 热点，再筛选适合短视频表达的选题，最后生成适合数字人口播和 AI 画面的 70-85 秒中文文案。输出包含标题、5 秒 Hook、口播稿、AI 画面方向和一句一行字幕版。
 
-## 能做什么
+可在 Claude Code、Codex、Trae、Cursor、Gemini CLI、OpenCode 等支持 Agent Skills 的工具中使用。
 
-- 获取近期 AI 热点，筛选适合短视频表达的选题
-- 生成适合抖音、视频号等平台的数字人口播文案
-- 输出 70-85 秒左右的口播稿
-- 输出一句一行的字幕版
-- 提供标题候选、5 秒 Hook 和 AI 画面方向
-- 内置内容诊断、开头优化、标题优化和 AI 写作特征检查
-- 支持按账号方向做本次定制，例如 AI 科普、热点资讯、工具轻教程、商业机会解读等
+---
 
 ## 一键安装
 
 ```bash
-npx skills add https://github.com/Joel-Z-code/aihot-video-copy-skill --skill aihot --skill aihot-video-copy-skill -g -a codex -y
+npx skills add Joel-Z-code/aihot-video-copy-skill -g --all
 ```
 
-安装完成后，重启 Codex，让新的 Skill 生效。
+安装完成后，重启你的 Agent，让新的 Skill 生效。后续更新也重新运行同一条命令即可。
 
-这条命令会同时安装：
+这条命令会安装两个 Skill：
 
-- `aihot`：获取 AI HOT 热点
-- `aihot-video-copy-skill`：生成短视频文案
+| Skill | 作用 |
+|---|---|
+| `aihot` | 获取 AI HOT 热点、精选条目、分类资讯和日报 |
+| `aihot-video-copy-skill` | 把热点编排成短视频口播文案 |
 
-## 使用方式
+---
 
-安装后，可以直接对 Codex 说：
+## 它能做什么
+
+| 能力 | 说明 |
+|---|---|
+| 热点获取 | 从 AI HOT 获取近期 AI 热点，不凭记忆编造新闻 |
+| 选题筛选 | 判断哪些热点适合短视频表达 |
+| 口播生成 | 生成 70-85 秒左右的数字人口播文案 |
+| 字幕切分 | 输出一句一行字幕版，方便复制到剪辑软件 |
+| 标题与 Hook | 生成标题候选和前 5 秒开头 |
+| 画面方向 | 给出适合 AI 视频或图片生成的画面节拍 |
+| 内容优化 | 内置内容诊断、开头优化、标题优化和 AI 写作特征检查 |
+| 账号定制 | 支持按 AI 科普、热点资讯、工具轻教程、商业机会解读等方向定制 |
+
+---
+
+## 工作流
+
+```text
+AI HOT 热点
+    ↓
+筛选适合短视频的选题
+    ↓
+确定讲述角度和目标观众
+    ↓
+生成 70-85 秒口播稿
+    ↓
+切成一句一行字幕版
+    ↓
+生成标题、Hook、AI 画面方向
+    ↓
+检查事实、节奏和 AI 写作特征
+```
+
+---
+
+## 怎么使用
+
+普通生成：
 
 ```text
 帮我制作一条 AI 热点短视频文案
 ```
 
-也可以指定账号方向：
+按账号方向生成：
 
 ```text
 帮我按 AI 科普号的方向，制作一条近期 AI 热点短视频文案
@@ -43,16 +76,18 @@ npx skills add https://github.com/Joel-Z-code/aihot-video-copy-skill --skill aih
 
 输出通常包含：
 
-- 选题
-- 角度判断
-- 口播稿
-- 字幕版
-- 标题候选
-- Hook
-- AI 画面方向
-- 质量检查
+| 模块 | 内容 |
+|---|---|
+| 选题 | 热点标题、来源、原文链接 |
+| 角度 | 推荐切入点、目标观众、适配判断 |
+| 文案 | 口播稿和最终版 |
+| 字幕 | 一句一行字幕版 |
+| 包装 | 标题候选、5 秒 Hook、AI 画面方向 |
+| 检查 | AI 写作特征检查和处理 |
 
-## 适合场景
+---
+
+## 适合谁
 
 - AI 热点资讯号
 - AI 科普号
@@ -60,7 +95,11 @@ npx skills add https://github.com/Joel-Z-code/aihot-video-copy-skill --skill aih
 - AI 商业机会解读号
 - 数字人口播 + AI 画面形式的短视频账号
 
-## 不适合场景
+---
+
+## 边界
+
+这个 Skill 不适合：
 
 - 真人出镜脚本
 - 录屏实操教程
@@ -68,6 +107,8 @@ npx skills add https://github.com/Joel-Z-code/aihot-video-copy-skill --skill aih
 - 单独查询 AI 新闻
 - 单独改标题、改开头或润色文章
 
-## 来源说明
+---
 
-AI Hot 热点获取能力来自 [AI HOT](https://aihot.virxact.com/) 及其公开 Skill，原项目采用 MIT License。
+## 来源
+
+AI Hot 热点获取能力来自 [AI HOT](https://aihot.virxact.com/) 及其公开 Skill，原项目采用 MIT License。详见 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)。
